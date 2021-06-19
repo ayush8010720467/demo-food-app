@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Navigation from './Navigation';
+import Listing from './Listing';
+import  About  from "./About";
+import  Orders  from "./Orders";
 
+import {BrowserRouter,Route , Switch} from 'react-router-dom'
 function App() {
-  return (
+  return (<>
+  <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation></Navigation>
     </div>
+    <div style={{height: '150px'}}></div>
+    <Switch>
+    <Route path='/' component={Listing} exact></Route>
+      <Route path='/aboutus' component={About} ></Route>
+      <Route path='/myorder' component={Orders} ></Route>
+      <Route path='/aboutus' component={About} ></Route>
+      {/* <Route path='/contactus' component={ContactUS} ></Route> */}
+      {/* <Listing></Listing> */}
+      </Switch>
+    </BrowserRouter>
+    </>
   );
 }
 
